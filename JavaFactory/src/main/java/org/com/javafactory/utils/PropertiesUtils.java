@@ -29,7 +29,6 @@ public class PropertiesUtils {
             while (iterator.hasNext()){
                 String key = (String) iterator.next();
                 PropertiesMap.put(key, props.getProperty(key));
-                logger.info(key + "=" + props.getProperty(key));
             }
 
         } catch (Exception e){
