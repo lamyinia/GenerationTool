@@ -1,13 +1,63 @@
 package org.com.javafactory.bean;
 
 import org.com.javafactory.utils.PropertiesUtils;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
+
 
 import static org.com.javafactory.utils.PropertiesUtils.getProperty;
 
 public class Constants {
+    public static final Logger logger = LoggerFactory.getLogger(Constants.class);
+
+    public static String PACKAGE_BASE;
+    public static String PACKAGE_BEAN;
+    public static String PACKAGE_MAPPER;
+    public static String PACKAGE_SERVICE;
+    public static String PACKAGE_CONTROLLER;
+    public static String PACKAGE_ENUMS;
+    public static String PACKAGE_VO;
+    public static String PACKAGE_PARAM;
+    public static String PACKAGE_UTILS;
+    public static String PACKAGE_EXCEPTION;
+
     public static Boolean IGNORE_TABLE_PREFIX;
     public static String SUFFIX_BEAN_PARAM;
+
+    public static String PATH_BASE;
+    public static String PATH_BEAN;
+    public static String PATH_MAPPER;
+    public static String PATH_SERVICE;
+    public static String PATH_CONTROLLER;
+    public static String PATH_ENUMS;
+    public static String PATH_VO;
+    public static String PATH_PARAM;
+    public static String PATH_UTILS;
+    public static String PATH_EXCEPTION;
+
+    private static String PATH_MAVEN = "src/main/";
+    private static String PATH_JAVA = PATH_MAVEN + "java/";
+    private static String PATH_RESOURCES = PATH_MAVEN + "resources/";
+
     static {
+        PACKAGE_BASE = PropertiesUtils.getProperty("package.base");
+        PACKAGE_BEAN = PACKAGE_BASE + "." + PropertiesUtils.getProperty("package.bean");
+        PACKAGE_MAPPER = PACKAGE_BASE + "." + PropertiesUtils.getProperty("package.mapper");
+        PACKAGE_SERVICE = PACKAGE_BASE + "." + PropertiesUtils.getProperty("package.service");
+        PACKAGE_CONTROLLER = PACKAGE_BASE + "." + PropertiesUtils.getProperty("package.controller");
+        PACKAGE_ENUMS = PACKAGE_BASE + "." + PropertiesUtils.getProperty("package.enums");
+        PACKAGE_VO = PACKAGE_BASE + "." + PropertiesUtils.getProperty("package.vo");
+        PACKAGE_PARAM = PACKAGE_BASE + "." + PropertiesUtils.getProperty("package.param");
+        PACKAGE_UTILS = PACKAGE_BASE + "." + PropertiesUtils.getProperty("package.utils");
+        PACKAGE_EXCEPTION = PACKAGE_BASE + "." + "exception";
+
+        PATH_BASE = PropertiesUtils.getProperty("path.base") + PATH_JAVA;
+        PATH_RESOURCES = PropertiesUtils.getProperty("path.base") + PATH_RESOURCES;
+        PATH_BEAN = PATH_BASE + PACKAGE_BEAN.replace(".", "/");
+        PATH_MAPPER = PATH_BASE + PACKAGE_MAPPER.replace(".", "/");
+        PATH_SERVICE = PATH_BASE + PACKAGE_SERVICE.replace(".", "/");
+        PATH_CONTROLLER = PATH_BASE + PACKAGE_CONTROLLER.replace(".", "/");
+
         IGNORE_TABLE_PREFIX = Boolean.valueOf(PropertiesUtils.getProperty("ignore.table.prefix"));
         SUFFIX_BEAN_PARAM = PropertiesUtils.getProperty("suffix.bean.param");
     }
@@ -21,4 +71,8 @@ public class Constants {
 
     public static String TYPE_STRING = "String";
     public static String TYPE_DATE = "Date";
+
+    public static void main(String[] args) {
+        logger.info(PATH_BEAN);
+    }
 }

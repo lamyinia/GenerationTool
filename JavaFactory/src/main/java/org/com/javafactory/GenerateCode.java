@@ -2,6 +2,7 @@ package org.com.javafactory;
 
 import org.com.javafactory.bean.FieldInfo;
 import org.com.javafactory.bean.TableInfo;
+import org.com.javafactory.builder.BuildBeanPo;
 import org.com.javafactory.builder.BuildTable;
 import org.com.javafactory.utils.JsonUtils;
 import org.slf4j.Logger;
@@ -15,15 +16,12 @@ public class GenerateCode {
 
         try {
             BuildTable builder = new BuildTable();
-            List<TableInfo> table = builder.getTableInfo();
-            for (TableInfo tableInfo : table) {
-                logger.info("{}, {}, {}, {}", tableInfo.getTableName(), tableInfo.getBeanName(), tableInfo.getTableComment(), tableInfo.getBeanParamName());
-            }
-            List<FieldInfo> list = table.get(0).getFieldList();
-            for (FieldInfo fieldInfo : list) {
-                logger.info(JsonUtils.toJson(fieldInfo));
-            }
+            List<TableInfo> tables = builder.getTableInfo();
+            for (TableInfo table : tables) {
 
+                BuildBeanPo.execute(table);
+
+            }
         } catch (Exception e) {
             e.printStackTrace();
             logger.error("生成代码失败");
@@ -32,12 +30,15 @@ public class GenerateCode {
     }
 }
 /*
-                List<FieldInfo> list = builder.readFieldInfo(tableInfo);
-                for (FieldInfo fieldInfo : list) {
-                    logger.info("{}, {}, {}, {}, {}, {}", fieldInfo.getFieldName(), fieldInfo.getPropertyName(), fieldInfo.getComment(),
-                            fieldInfo.getSqlType(), fieldInfo.getAutoIncrement(), fieldInfo.getJavaType());
-                }
-
-                logger.info("表:{}", JsonUtils.toJson(tableInfo));
-                logger.info("字段:{}", JsonUtils.toJson(list));
+            打印表和字段
+            for (TableInfo tableInfo : tables) {
+                logger.info("{}, {}, {}, {}", tableInfo.getTableName(), tableInfo.getBeanName(), tableInfo.getTableComment(), tableInfo.getBeanParamName());
+            }
+            List<FieldInfo> list = tables.get(0).getFieldList();
+            for (FieldInfo fieldInfo : list) {
+                logger.info(JsonUtils.toJson(fieldInfo));
+            }
+            for (TableInfo table : tables){
+                BuildBeanPo.execute(table);
+            }
  */
