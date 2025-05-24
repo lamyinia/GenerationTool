@@ -6,6 +6,7 @@
       <list>
         <option value="$PROJECT_DIR$/JavaFactory/pom.xml" />
         <option value="$PROJECT_DIR$/system/JavaFactory/pom.xml" />
+        <option value="$PROJECT_DIR$/GeneratedCode/pom.xml" />
       </list>
     </option>
   </component>
