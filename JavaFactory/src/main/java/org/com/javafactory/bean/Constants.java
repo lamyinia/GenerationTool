@@ -10,6 +10,15 @@ import static org.com.javafactory.utils.PropertiesUtils.getProperty;
 public class Constants {
     public static final Logger logger = LoggerFactory.getLogger(Constants.class);
 
+    public static String[] IGNORE_BEAN_TOJSON_FIELDS;
+    public static String IGNORE_BEAN_TOJSON_EXPRESSION;
+    public static String IGNORE_BEAN_TOJSON_CLASS;
+
+    public static String BEAN_DATE_EXPRESSION;
+    public static String BEAN_DATE_EXPRESSION_CLASS;
+    public static String BEAN_DATE_FORMAT;
+    public static String BEAN_DATE_FORMAT_CLASS;
+
     public static String PACKAGE_BASE;
     public static String PACKAGE_BEAN;
     public static String PACKAGE_MAPPER;
@@ -39,6 +48,8 @@ public class Constants {
     private static String PATH_JAVA = PATH_MAVEN + "java/";
     private static String PATH_RESOURCES = PATH_MAVEN + "resources/";
 
+    public static String COMMENT_AUTHOR = PropertiesUtils.getProperty("comment.author");
+
     static {
         PACKAGE_BASE = PropertiesUtils.getProperty("package.base");
         PACKAGE_BEAN = PACKAGE_BASE + "." + PropertiesUtils.getProperty("package.bean");
@@ -58,6 +69,15 @@ public class Constants {
         PATH_SERVICE = PATH_BASE + PACKAGE_SERVICE.replace(".", "/");
         PATH_CONTROLLER = PATH_BASE + PACKAGE_CONTROLLER.replace(".", "/");
 
+        IGNORE_BEAN_TOJSON_FIELDS = PropertiesUtils.getProperty("ignore.bean.tojson.field").split(",");
+        IGNORE_BEAN_TOJSON_EXPRESSION = PropertiesUtils.getProperty("ignore.bean.tojson.expression");
+        IGNORE_BEAN_TOJSON_CLASS = PropertiesUtils.getProperty("ignore.bean.tojson.class");
+
+        BEAN_DATE_EXPRESSION = PropertiesUtils.getProperty("bean.date.expression");
+        BEAN_DATE_EXPRESSION_CLASS = PropertiesUtils.getProperty("bean.date.expression.class");
+        BEAN_DATE_FORMAT = PropertiesUtils.getProperty("bean.date.format");
+        BEAN_DATE_FORMAT_CLASS = PropertiesUtils.getProperty("bean.date.format.class");
+
         IGNORE_TABLE_PREFIX = Boolean.valueOf(PropertiesUtils.getProperty("ignore.table.prefix"));
         SUFFIX_BEAN_PARAM = PropertiesUtils.getProperty("suffix.bean.param");
     }
@@ -73,6 +93,6 @@ public class Constants {
     public static String TYPE_DATE = "Date";
 
     public static void main(String[] args) {
-        logger.info(PATH_BEAN);
+        logger.info(IGNORE_BEAN_TOJSON_EXPRESSION);
     }
 }

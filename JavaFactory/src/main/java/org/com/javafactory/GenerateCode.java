@@ -4,7 +4,7 @@ import org.com.javafactory.bean.FieldInfo;
 import org.com.javafactory.bean.TableInfo;
 import org.com.javafactory.builder.BuildBeanPo;
 import org.com.javafactory.builder.BuildTable;
-import org.com.javafactory.utils.JsonUtils;
+
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 

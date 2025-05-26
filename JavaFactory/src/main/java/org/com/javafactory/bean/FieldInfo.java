@@ -2,11 +2,11 @@ package org.com.javafactory.bean;
 
 public class FieldInfo {
     private String fieldName;
-    private String propertyName;
+    private String beanName;
     private String sqlType;
     private String javaType;
     private String fieldComment;
-    private Boolean isAutoIncrement;
+    private Boolean isAutoIncrement = false;
 
     public String getFieldName() {
         return fieldName;
@@ -16,12 +16,12 @@ public class FieldInfo {
         this.fieldName = fieldName;
     }
 
-    public String getPropertyName() {
-        return propertyName;
+    public String getBeanName() {
+        return beanName;
     }
 
-    public void setPropertyName(String propertyName) {
-        this.propertyName = propertyName;
+    public void setBeanName(String beanName) {
+        this.beanName = beanName;
     }
 
     public String getSqlType() {

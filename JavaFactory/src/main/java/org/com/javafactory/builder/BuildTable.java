@@ -102,7 +102,7 @@ public class BuildTable {
 
             while(rs.next()){
                 String fieldName = rs.getString("Field");
-                String propertyName = processName(fieldName, false);
+                String beanName = processName(fieldName, false);
                 String sqlType = rs.getString("Type");
                 String extra = rs.getString("Extra");
                 String fieldComment = rs.getString("Comment");
@@ -125,7 +125,7 @@ public class BuildTable {
                 fieldInfo.setFieldName(fieldName);
                 fieldInfo.setSqlType(sqlType);
                 fieldInfo.setFieldComment(fieldComment);
-                fieldInfo.setPropertyName(propertyName);
+                fieldInfo.setBeanName(beanName);
                 fieldInfo.setJavaType(javaType);
                 if (KEY_AUTO_INCREMENT.equalsIgnoreCase(extra)){
                     fieldInfo.setAutoIncrement(true);
