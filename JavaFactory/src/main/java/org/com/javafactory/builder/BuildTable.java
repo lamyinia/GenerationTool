@@ -5,7 +5,7 @@ import org.com.javafactory.bean.Constants;
 import org.com.javafactory.bean.FieldInfo;
 import org.com.javafactory.bean.TableInfo;
 import org.com.javafactory.utils.PropertiesUtils;
-import org.com.javafactory.utils.StringUtils;
+import org.com.javafactory.utils.StringTools;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
@@ -146,9 +146,9 @@ public class BuildTable {
     private static String processName(String beanName, Boolean upperFirst){
         StringBuffer ret = new StringBuffer();
         String[] beans = beanName.split("_");
-        ret.append(upperFirst ? StringUtils.upperCaseFirstLetter(beans[0]) : beans[0]);
+        ret.append(upperFirst ? StringTools.upperCaseFirstLetter(beans[0]) : beans[0]);
         for (int i = 1; i < beans.length; i++) {
-            ret.append(StringUtils.upperCaseFirstLetter(beans[i]));
+            ret.append(StringTools.upperCaseFirstLetter(beans[i]));
         }
         return ret.toString();
     }

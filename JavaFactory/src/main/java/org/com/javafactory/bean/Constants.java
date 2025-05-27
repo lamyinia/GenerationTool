@@ -68,6 +68,11 @@ public class Constants {
         PATH_MAPPER = PATH_BASE + PACKAGE_MAPPER.replace(".", "/");
         PATH_SERVICE = PATH_BASE + PACKAGE_SERVICE.replace(".", "/");
         PATH_CONTROLLER = PATH_BASE + PACKAGE_CONTROLLER.replace(".", "/");
+        PATH_ENUMS = PATH_BASE + PACKAGE_ENUMS.replace(".", "/");
+        PATH_VO = PATH_BASE + PACKAGE_VO.replace(".", "/");
+        PATH_PARAM = PATH_BASE + PACKAGE_PARAM.replace(".", "/");
+        PATH_UTILS = PATH_BASE + PACKAGE_UTILS.replace(".", "/");
+        PATH_EXCEPTION = PATH_BASE + PACKAGE_EXCEPTION.replace(".", "/");
 
         IGNORE_BEAN_TOJSON_FIELDS = PropertiesUtils.getProperty("ignore.bean.tojson.field").split(",");
         IGNORE_BEAN_TOJSON_EXPRESSION = PropertiesUtils.getProperty("ignore.bean.tojson.expression");

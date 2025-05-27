@@ -4,7 +4,7 @@ import org.apache.commons.lang3.ArrayUtils;
 import org.com.javafactory.bean.Constants;
 import org.com.javafactory.bean.FieldInfo;
 import org.com.javafactory.bean.TableInfo;
-import org.com.javafactory.utils.StringUtils;
+import org.com.javafactory.utils.StringTools;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
@@ -89,7 +89,7 @@ public class BuildBeanPo {
 
             /* 生成 getter 和 setter 方法*/
             for (FieldInfo fieldInfo : fieldList) {
-                String tempField = StringUtils.upperCaseFirstLetter(fieldInfo.getBeanName());
+                String tempField = StringTools.upperCaseFirstLetter(fieldInfo.getBeanName());
                 bw.write("\n\tpublic void set" + tempField + "(" + fieldInfo.getJavaType() + " " + fieldInfo.getBeanName() + "){");
                 bw.write("\n\t\tthis." + fieldInfo.getBeanName() + " = " + fieldInfo.getBeanName() + ";");
                 bw.write("\n\t}");
