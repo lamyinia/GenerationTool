@@ -94,7 +94,7 @@ public class BuildBeanPo {
                 bw.write("\n\t\tthis." + fieldInfo.getBeanName() + " = " + fieldInfo.getBeanName() + ";");
                 bw.write("\n\t}");
 
-                bw.write("\n\tpublic " + fieldInfo.getJavaType() + " get"+tempField+"(){");
+                bw.write("\n\tpublic " + fieldInfo.getJavaType() + " get"+tempField + "(){");
                 bw.write("\n\t\treturn this." + fieldInfo.getBeanName() + ";");
                 bw.write("\n\t}");
             }

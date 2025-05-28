@@ -48,10 +48,10 @@ public class BuildBaseJava {
     private static void build(List<String> headInfoList, String packageName, String outPutPath){
         File folder = new File(outPutPath);
         if(!folder.exists()){
-            folder.mkdir();
+            folder.mkdirs();
         }
 
-        File beanFile = new File(folder, packageName + ".java");
+        File beanFile = new File(outPutPath, packageName + ".java");
 
         try(FileOutputStream out = new FileOutputStream(beanFile);
             InputStream in = PropertiesUtils.class.getClassLoader().getResourceAsStream("template/" + packageName + ".txt");

@@ -1,10 +1,7 @@
 package org.com.javafactory;
 
-import org.com.javafactory.bean.FieldInfo;
 import org.com.javafactory.bean.TableInfo;
-import org.com.javafactory.builder.BuildBaseJava;
-import org.com.javafactory.builder.BuildBeanPo;
-import org.com.javafactory.builder.BuildTable;
+import org.com.javafactory.builder.*;
 
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -23,6 +20,16 @@ public class GenerateCode {
                 BuildBaseJava.execute();
 
                 BuildBeanPo.execute(table);
+
+                BuildBeanQuery.execute(table);
+
+                BuildMapper.execute(table);
+                BuildMapperXml.execute(table);
+
+                BuildController.execute(table);
+
+                BuildService.execute(table);
+                BuildServiceImpl.execute(table);
 
             }
         } catch (Exception e) {

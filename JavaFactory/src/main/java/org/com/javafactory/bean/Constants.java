@@ -4,15 +4,23 @@ import org.com.javafactory.utils.PropertiesUtils;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
-
-import static org.com.javafactory.utils.PropertiesUtils.getProperty;
-
 public class Constants {
     public static final Logger logger = LoggerFactory.getLogger(Constants.class);
 
     public static String[] IGNORE_BEAN_TOJSON_FIELDS;
     public static String IGNORE_BEAN_TOJSON_EXPRESSION;
     public static String IGNORE_BEAN_TOJSON_CLASS;
+    public static Boolean IGNORE_TABLE_PREFIX;
+
+    public static String SUFFIX_MAPPER;
+    public static String SUFFIX_MAPPER_XML;
+    public static String SUFFIX_SERVICE;
+    public static String SUFFIX_SERVICE_IMPL;
+    public static String SUFFIX_CONTROLLER;
+    public static String SUFFIX_PROPERTY_FUZZY;
+    public static String SUFFIX_BEAN_PARAM;
+    public static String SUFFIX_BEAN_PARAM_START;
+    public static String SUFFIX_BEAN_PARAM_END;
 
     public static String BEAN_DATE_EXPRESSION;
     public static String BEAN_DATE_EXPRESSION_CLASS;
@@ -23,6 +31,7 @@ public class Constants {
     public static String PACKAGE_BEAN;
     public static String PACKAGE_MAPPER;
     public static String PACKAGE_SERVICE;
+    public static String PACKAGE_SERVICE_IMPL;
     public static String PACKAGE_CONTROLLER;
     public static String PACKAGE_ENUMS;
     public static String PACKAGE_VO;
@@ -30,13 +39,13 @@ public class Constants {
     public static String PACKAGE_UTILS;
     public static String PACKAGE_EXCEPTION;
 
-    public static Boolean IGNORE_TABLE_PREFIX;
-    public static String SUFFIX_BEAN_PARAM;
 
     public static String PATH_BASE;
     public static String PATH_BEAN;
     public static String PATH_MAPPER;
+    public static String PATH_MAPPER_XML;
     public static String PATH_SERVICE;
+    public static String PATH_SERVICE_IMPL;
     public static String PATH_CONTROLLER;
     public static String PATH_ENUMS;
     public static String PATH_VO;
@@ -55,6 +64,7 @@ public class Constants {
         PACKAGE_BEAN = PACKAGE_BASE + "." + PropertiesUtils.getProperty("package.bean");
         PACKAGE_MAPPER = PACKAGE_BASE + "." + PropertiesUtils.getProperty("package.mapper");
         PACKAGE_SERVICE = PACKAGE_BASE + "." + PropertiesUtils.getProperty("package.service");
+        PACKAGE_SERVICE_IMPL = PACKAGE_BASE + "." + PropertiesUtils.getProperty("package.service.impl");
         PACKAGE_CONTROLLER = PACKAGE_BASE + "." + PropertiesUtils.getProperty("package.controller");
         PACKAGE_ENUMS = PACKAGE_BASE + "." + PropertiesUtils.getProperty("package.enums");
         PACKAGE_VO = PACKAGE_BASE + "." + PropertiesUtils.getProperty("package.vo");
@@ -66,7 +76,9 @@ public class Constants {
         PATH_RESOURCES = PropertiesUtils.getProperty("path.base") + PATH_RESOURCES;
         PATH_BEAN = PATH_BASE + PACKAGE_BEAN.replace(".", "/");
         PATH_MAPPER = PATH_BASE + PACKAGE_MAPPER.replace(".", "/");
+        PATH_MAPPER_XML = PATH_RESOURCES + PACKAGE_MAPPER.replace(".", "/");
         PATH_SERVICE = PATH_BASE + PACKAGE_SERVICE.replace(".", "/");
+        PATH_SERVICE_IMPL = PATH_BASE + PACKAGE_SERVICE_IMPL.replace(".", "/");
         PATH_CONTROLLER = PATH_BASE + PACKAGE_CONTROLLER.replace(".", "/");
         PATH_ENUMS = PATH_BASE + PACKAGE_ENUMS.replace(".", "/");
         PATH_VO = PATH_BASE + PACKAGE_VO.replace(".", "/");
@@ -84,7 +96,16 @@ public class Constants {
         BEAN_DATE_FORMAT_CLASS = PropertiesUtils.getProperty("bean.date.format.class");
 
         IGNORE_TABLE_PREFIX = Boolean.valueOf(PropertiesUtils.getProperty("ignore.table.prefix"));
+
         SUFFIX_BEAN_PARAM = PropertiesUtils.getProperty("suffix.bean.param");
+        SUFFIX_MAPPER = PropertiesUtils.getProperty("suffix.mapper");
+        SUFFIX_MAPPER_XML = PropertiesUtils.getProperty("suffix.mapper.xml");
+        SUFFIX_SERVICE = PropertiesUtils.getProperty("suffix.service");
+        SUFFIX_SERVICE_IMPL = PropertiesUtils.getProperty("suffix.service.impl");
+        SUFFIX_CONTROLLER = PropertiesUtils.getProperty("suffix.controller");
+        SUFFIX_PROPERTY_FUZZY = PropertiesUtils.getProperty("suffix.property.fuzzy");
+        SUFFIX_BEAN_PARAM_START = PropertiesUtils.getProperty("suffix.bean.param.start");
+        SUFFIX_BEAN_PARAM_END = PropertiesUtils.getProperty("suffix.bean.param.end");
     }
 
     public static final String[] SQL_INTEGER_TYPES = new String[] {"tinyint", "int"};
@@ -98,6 +119,6 @@ public class Constants {
     public static String TYPE_DATE = "Date";
 
     public static void main(String[] args) {
-        logger.info(IGNORE_BEAN_TOJSON_EXPRESSION);
+        logger.info(SUFFIX_BEAN_PARAM_END);
     }
 }

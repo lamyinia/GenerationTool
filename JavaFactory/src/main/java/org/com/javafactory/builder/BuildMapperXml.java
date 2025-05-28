@@ -8,24 +8,23 @@ import org.slf4j.LoggerFactory;
 import java.io.*;
 import java.nio.charset.StandardCharsets;
 
-public class BuildMapper {
+public class BuildMapperXml {
     public static final Logger logger = LoggerFactory.getLogger(BuildMapper.class);
 
     public static void execute(TableInfo tableInfo){
-        File folder = new File(Constants.PATH_MAPPER);
+        File folder = new File(Constants.PATH_MAPPER_XML);
         if (!folder.exists()){
             folder.mkdirs();
         }
 
-        String className = tableInfo.getBeanName() + Constants.SUFFIX_MAPPER;
-        File mapperFile = new File(folder, className + ".java");
+        String className = tableInfo.getBeanName() + Constants.SUFFIX_MAPPER_XML;
+        File mapperXmlFile = new File(folder, className + ".xml");
 
-        try(BufferedWriter writer = new BufferedWriter(new OutputStreamWriter(new FileOutputStream(mapperFile), StandardCharsets.UTF_8))){
-            writer.write("package " + Constants.PACKAGE_MAPPER + ";");
+        try(BufferedWriter writer = new BufferedWriter(new OutputStreamWriter(new FileOutputStream(mapperXmlFile), StandardCharsets.UTF_8))){
 
 
         } catch (IOException e){
-            logger.info("创建mapper失败");
+            logger.info("创建mapperXml失败");
         }
     }
 }
